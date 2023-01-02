@@ -23,6 +23,7 @@ spec:
           image: jalasuresh/nopcommerce1.0
           ports:
             - containerPort: 80
+              name: nop-svc
               protocol: TCP
 ---
 apiVersion: v1
