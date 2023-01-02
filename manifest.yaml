@@ -62,6 +62,8 @@ spec:
       volumeMounts:
         - mountPath: /var/lib/mysql
           name: mysql-vol
+volumes:
+  - name: mysql-vol
 ---
 apiVersion: v1
 kind: Service
