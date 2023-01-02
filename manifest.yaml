@@ -20,7 +20,7 @@ spec:
     spec:
       containers: 
         - name: nop-commerce
-          image: jalasuresh/nop-commerce1.0
+          image: jalasuresh/nopcommerce1.0
           ports:
             - containerPort: 80
               protocol: TCP
@@ -32,8 +32,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    matchlabels:
-      app: nop-commerce
+    app: nop-commerce
   ports:
       - targetPort: 80
         port: 35000
@@ -70,8 +69,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    matchlabels:
-      app: nop-commerce
+    app: nop-commerce
   ports:
       - targetPort: 3306
         protocol: TCP
