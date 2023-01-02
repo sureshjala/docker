@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage ('vcs') {
             steps {
-                git branch 'master',url: 'https://github.com/sureshjala/docker.git'
+                git branch:'master',url: 'https://github.com/sureshjala/docker.git'
             }
         }
         stage ('docker image build & pushing to registry') {
