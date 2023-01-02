@@ -8,6 +8,7 @@ spec:
   replicas: 2
   selector: 
     app: nop-commerce
+    name: my-sql-db
   strategy: 
     type: RollingUpdate
     rollingUpdate:
@@ -31,8 +32,46 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: nop-commerce
+    matchlabels:
+      app: nop-commerce
   ports:
       - targetPort: 80
         port: 35000
+        protocol: TCP
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-sql-db
+spec:
+  containers:
+    - name: mysql-contianer
+      image: mysql:8-debian
+      ports:
+        - containerPort: 3306
+          protocol: TCP
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: rootroot
+        - name: MYSQL_DATABASE
+          value: employees
+        - name: MYSQL_USER
+          value: suresh
+        - name: MYSQL_PASSWORD
+          value: suresh
+      volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: mysql-vol
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: svc-db
+spec:
+  type: ClusterIP
+  selector:
+    matchlabels:
+      app: nop-commerce
+  ports:
+      - targetPort: 3306
         protocol: TCP

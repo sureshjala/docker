@@ -7,7 +7,8 @@ spec:
   minReadySeconds: 5
   replicas: 2
   selector: 
-    app: nop-commerce
+    matchlabels:
+      app: nop-commerce
   strategy: 
     type: RollingUpdate
     rollingUpdate:
@@ -31,7 +32,8 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: nop-commerce
+    matchlabels:
+      app: nop-commerce
   ports:
       - targetPort: 80
         port: 35000

@@ -9,7 +9,7 @@ RUN apt update && \
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
-LABEL author="khaja"
+LABEL author="suresh"
 COPY  --from=unzip /Nop /Nop
 WORKDIR /Nop
 EXPOSE 80

@@ -1,18 +1,27 @@
 pipeline {
-    agent any
+    agent {label 'DOCKER'}
     stages {
-        stage (vcs) {
+        stage ('vcs') {
             steps {
-                git branch '',url: ''
+                git branch:'master',url: 'https://github.com/sureshjala/docker.git'
             }
         }
-        stage (docker image build & pushing to registry) {
+        stage ('docker image build & pushing to registry') {
             steps {
                 sh """
                 docker info
                 docker image build -t jalasuresh/nopcommerce:1.0 .
                 docker image push jalasuresh/nopcommerce:1.0
                 """
+            }
+        }
+        stage (deployment ) {
+            steps {
+                sh"""
+                kubectl apply -f manifest.yaml
+                kubectl get pods
+                """
+
             }
         }
     }
