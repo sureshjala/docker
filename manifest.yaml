@@ -73,4 +73,5 @@ spec:
     app: nop-commerce
   ports:
       - targetPort: 3306
+        port: 3306
         protocol: TCP
