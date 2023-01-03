@@ -7,8 +7,9 @@ spec:
   minReadySeconds: 5
   replicas: 2
   selector: 
-    app: nop-commerce
-    name: my-sql-db
+    matchLabels:
+      app: nop-commerce
+      name: my-sql-db
   strategy: 
     type: RollingUpdate
     rollingUpdate:
