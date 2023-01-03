@@ -9,7 +9,6 @@ spec:
   selector: 
     matchLabels:
       app: nopcommerce
-      name: my-sql-db
   strategy: 
     type: RollingUpdate
     rollingUpdate:
