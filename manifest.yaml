@@ -36,9 +36,11 @@ spec:
   selector:
     app: nop-commerce
   ports:
-      - targetPort: 80
-        port: 35000
-        protocol: TCP
+    - name: web_port
+      port: 35000
+      targetPort: 80
+      protocol: TCP 
+
 ---
 apiVersion: v1
 kind: Pod
