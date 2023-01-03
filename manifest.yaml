@@ -21,7 +21,7 @@ spec:
     spec:
       containers: 
         - name: nop-commerce
-          image: jalasuresh/nopcommerce1.0
+          image: jalasuresh/nopcommerce:1.0
           ports:
             - containerPort: 80
               name: nop-svc
