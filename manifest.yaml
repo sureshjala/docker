@@ -36,7 +36,7 @@ spec:
   selector:
     app: nop-commerce
   ports:
-    - name: web_port
+    - name: webport
       port: 35000
       targetPort: 80
       protocol: TCP 
