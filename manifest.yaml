@@ -17,7 +17,8 @@ spec:
       maxUnavailable: 25
   template:
     metadata:
-      app: nop-commerce
+      labels:
+        app: nop-commerce
     spec:
       containers: 
         - name: nop-commerce
